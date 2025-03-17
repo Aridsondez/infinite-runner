@@ -1,21 +1,37 @@
 import { Canvas } from "@react-three/fiber";
 import { Physics } from "@react-three/cannon";
 import { OrbitControls } from "@react-three/drei";
+import { useState, useCallback } from "react";
 import Player from "./Player"
 import Ground from "./Ground"
-import Obstacles from "./Obstacles"
-
+import UI from "./UI"
 
 const Game = () => {
+    const [isPaused, setIsPaused] = useState(true);
+  const [isGameStarted, setIsGameStarted] = useState(false);
+
+  const startGame = useCallback(() => {
+    setIsPaused(false);
+    setIsGameStarted(true);
+  }, []);
+
+  const pauseGame = useCallback(() => {
+    setIsPaused(!isPaused);
+  }, [isPaused]);
+
+
+
   return (
+    <>
     <Canvas camera={{ position: [0, 5, 10] }}>
       <ambientLight intensity={0.5} />
       <directionalLight position={[5, 10, 5]} intensity={1} />
 
       {/* Physics Engine */}
       <Physics>
-        <Ground />
         <Player />
+        <Ground />
+        
 
       </Physics>
 
@@ -23,7 +39,16 @@ const Game = () => {
       <OrbitControls />
 
       {/* UI */}
+      
+      
     </Canvas>
+    <UI 
+        startGame={startGame} 
+        pauseGame={pauseGame} 
+        isPaused={isPaused} 
+        isGameStarted={isGameStarted} 
+      />
+    </>
   );
 };
 
