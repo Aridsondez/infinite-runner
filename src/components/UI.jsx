@@ -115,10 +115,7 @@ const UI = ({ startGame, pauseGame, isPaused, isGameStarted }) => {
 
       {isGameStarted && !isPaused && (
         <div className="fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-gray-800 px-6 py-4 rounded-xl text-white shadow-md">
-          <span className="block text-xs text-yellow-400 uppercase tracking-wider mb-1">Learn</span>
-          <h3 className="text-2xl font-bold">{currentWord.spanish}</h3>
-          <p className="text-blue text-sx underline"> English Word</p>
-          <p className="text-gray-300">{currentWord.english}</p>
+         <h3>HI IM GOING TO EXPLORE THE WORLD </h3>
         </div>
       )}
 
