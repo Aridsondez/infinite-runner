@@ -4,7 +4,7 @@ import { useRef } from "react";
 
 const Ground = () => {
   const [ref] = usePlane(() => ({
-    position: [0, 0, 0],
+    position: [10, 0, -20],
     rotation: [-Math.PI / 2, 0, 0],
     type: "Static", // Static ground
   }),useRef());

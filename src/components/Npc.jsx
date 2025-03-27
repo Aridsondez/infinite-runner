@@ -38,7 +38,7 @@ const NPC = ({ position, name, dialogue, path }) => {
           <div className="bg-white w-full flex-col text-black rounded-md items-center justify-center flex">
             <p className="p-2 font-bold"><strong>{name}:</strong> {question}</p>
             <input
-                className="text-black bg-blue-300 text-center p-2"
+                className="text-black bg-blue-300 text-center p-2 w-60 border-3 rounded-md"
               type="text"
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}

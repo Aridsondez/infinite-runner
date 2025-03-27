@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useSphere } from "@react-three/cannon";
 import * as THREE from "three";
+import { useControlsStore } from "./useControls/useControlsStore";
 
 const Player = () => {
   const { scene, animations } = useGLTF("/models/extrabullshits.glb");
@@ -104,6 +105,7 @@ const Player = () => {
 
   // Movement & Camera
   useFrame(() => {
+    const {direction} = useControlsStore.getState();
     if (ref.current && group.current) {
       let moveX = 0;
       let moveZ = 0;
@@ -111,19 +113,19 @@ const Player = () => {
       let currentSpeed = isRunning.current ? runSpeed : speed;
 
       // Movement logic - apply force to physics body
-      if (activeKeys.current.has("ArrowUp") || activeKeys.current.has("KeyW")) {
+      if (activeKeys.current.has("ArrowUp") || activeKeys.current.has("KeyW") || direction === "forward") {
         moveZ = -currentSpeed;
         movementApplied = true;
       }
-      if (activeKeys.current.has("ArrowDown") || activeKeys.current.has("KeyS")) {
+      if (activeKeys.current.has("ArrowDown") || activeKeys.current.has("KeyS") || direction === "backward") {
         moveZ = currentSpeed;
         movementApplied = true;
       }
-      if (activeKeys.current.has("ArrowLeft") || activeKeys.current.has("KeyA")) {
+      if (activeKeys.current.has("ArrowLeft") || activeKeys.current.has("KeyA") || direction === "left") {
         moveX = -currentSpeed;
         movementApplied = true;
       }
-      if (activeKeys.current.has("ArrowRight") || activeKeys.current.has("KeyD")) {
+      if (activeKeys.current.has("ArrowRight") || activeKeys.current.has("KeyD")|| direction === "right") {
         moveX = currentSpeed;
         movementApplied = true;
       }
@@ -157,7 +159,7 @@ const Player = () => {
         group.current.position.y + 3,
         group.current.position.z + 5
       );
-      camera.position.lerp(targetPosition, 0.08);
+      camera.position.lerp(targetPosition, 0.02);
       camera.lookAt(group.current.position);
     }
   });
