@@ -26,23 +26,6 @@ export const npcData = [
       ],
       path: "/models/bannana.glb"
     },
-    {
-      name: "OmniMan",
-      position: [-5, 0, -3],
-      dialogue: [
-        { question: "¿Quién es el mejor superhéroe?", correctAnswer: "OmniMan" },
-        { question: "¿Quién es más fuerte que OmniMan?", correctAnswer: "Nadie" }
-      ],
-      path: "/models/omniMan.glb"
-    },
-    {
-      name: "Toy Freddy",
-      position: [0, 0, -7],
-      dialogue: [
-        { question: "¿Dónde trabaja Toy Freddy?", correctAnswer: "Freddy Fazbear's Pizza" },
-        { question: "¿Qué le gusta hacer a Toy Freddy?", correctAnswer: "Jugar videojuegos" }
-      ],
-      path: "/models/toyfreddy.glb"
-    }
+
   ];
   

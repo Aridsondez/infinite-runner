@@ -43,13 +43,12 @@ const Game = () => {
 
       {/* Physics Engine */}
       <Physics>
-        <Debug>
+
         <Ground />
         <Player />
         {npcData.map((npc, index) => (
         <NPC key={index} {...npc} />
         ))}
-        </Debug>
 
       </Physics>
 
