@@ -18,6 +18,15 @@ export const npcData = [
       path: "/models/Dayo2.glb"
     },
     {
+      name: "OmniMan",
+      position: [-5, 0, -3],
+      dialogue: [
+        { question: "¿Quién es el mejor superhéroe?", correctAnswer: "OmniMan" },
+        { question: "¿Quién es más fuerte que OmniMan?", correctAnswer: "Nadie" }
+      ],
+      path: "/models/omniMan.glb"
+    },
+    {
       name: "Banana",
       position: [5, 2.4, 2],
       dialogue: [
